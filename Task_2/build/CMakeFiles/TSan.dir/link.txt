@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/TSan.dir/task.cpp.o CMakeFiles/TSan.dir/main.cpp.o CMakeFiles/TSan.dir/adddel.cpp.o CMakeFiles/TSan.dir/input.cpp.o CMakeFiles/TSan.dir/inputdata.cpp.o CMakeFiles/TSan.dir/showdata.cpp.o CMakeFiles/TSan.dir/change.cpp.o CMakeFiles/TSan.dir/sort.cpp.o -o TSan  -fsanitize=thread 

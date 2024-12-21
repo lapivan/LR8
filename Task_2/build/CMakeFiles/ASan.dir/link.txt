@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/ASan.dir/task.cpp.o CMakeFiles/ASan.dir/main.cpp.o CMakeFiles/ASan.dir/adddel.cpp.o CMakeFiles/ASan.dir/input.cpp.o CMakeFiles/ASan.dir/inputdata.cpp.o CMakeFiles/ASan.dir/showdata.cpp.o CMakeFiles/ASan.dir/change.cpp.o CMakeFiles/ASan.dir/sort.cpp.o -o ASan  -fsanitize=address 

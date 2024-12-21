@@ -1,0 +1,98 @@
+[
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/task.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/task.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/task.cpp",
+  "output": "CMakeFiles/ASan.dir/task.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/main.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/main.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/main.cpp",
+  "output": "CMakeFiles/ASan.dir/main.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/adddel.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/adddel.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/adddel.cpp",
+  "output": "CMakeFiles/ASan.dir/adddel.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/input.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/input.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/input.cpp",
+  "output": "CMakeFiles/ASan.dir/input.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/inputdata.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/inputdata.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/inputdata.cpp",
+  "output": "CMakeFiles/ASan.dir/inputdata.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/showdata.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/showdata.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/showdata.cpp",
+  "output": "CMakeFiles/ASan.dir/showdata.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/change.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/change.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/change.cpp",
+  "output": "CMakeFiles/ASan.dir/change.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=address -o CMakeFiles/ASan.dir/sort.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/sort.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/sort.cpp",
+  "output": "CMakeFiles/ASan.dir/sort.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/task.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/task.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/task.cpp",
+  "output": "CMakeFiles/TSan.dir/task.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/main.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/main.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/main.cpp",
+  "output": "CMakeFiles/TSan.dir/main.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/adddel.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/adddel.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/adddel.cpp",
+  "output": "CMakeFiles/TSan.dir/adddel.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/input.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/input.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/input.cpp",
+  "output": "CMakeFiles/TSan.dir/input.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/inputdata.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/inputdata.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/inputdata.cpp",
+  "output": "CMakeFiles/TSan.dir/inputdata.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/showdata.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/showdata.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/showdata.cpp",
+  "output": "CMakeFiles/TSan.dir/showdata.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/change.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/change.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/change.cpp",
+  "output": "CMakeFiles/TSan.dir/change.cpp.o"
+},
+{
+  "directory": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build",
+  "command": "/usr/bin/g++   -g -fsanitize=thread -o CMakeFiles/TSan.dir/sort.cpp.o -c /home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/sort.cpp",
+  "file": "/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/sort.cpp",
+  "output": "CMakeFiles/TSan.dir/sort.cpp.o"
+}
+]

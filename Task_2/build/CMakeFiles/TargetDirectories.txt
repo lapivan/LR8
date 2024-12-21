@@ -1,0 +1,4 @@
+/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build/CMakeFiles/ASan.dir
+/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build/CMakeFiles/TSan.dir
+/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build/CMakeFiles/edit_cache.dir
+/home/lapivan/Документы/453501/ОАиП/LR_8/Task_2/build/CMakeFiles/rebuild_cache.dir

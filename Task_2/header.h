@@ -28,3 +28,4 @@ void sort(students* p, int n);
 void insertsort(students* p, int n);
 void change(students* p, int n);
 int nullone();
+void filerecorder(students* p , int n);

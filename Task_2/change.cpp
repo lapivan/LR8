@@ -39,11 +39,16 @@
                 int counter = 0;
                 while(!checkfam)
                 {
-                    std::cin.getline(check_str, 80);
+                    std::cin.getline(check_str, 10000000);
                     if (strcmp(check_str, "!") == '\0')
                     {
                         system("clear");
                         strmenu(p, n);
+                    }
+                    if (strlen(check_str) > 79) 
+                    {
+                        std::cout << "Ошибка: строка слишком длинная. Попробуйте снова." << std::endl;
+                        continue;
                     }
                     if(check_str[0] == '\0')
                     {

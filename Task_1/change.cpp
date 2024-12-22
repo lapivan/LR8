@@ -1,6 +1,7 @@
  #include "header.h"
  void change(trains* p, int n, trains buf)
     {
+        
         system("clear");
         int n1, n2;
         if(n == 0)
@@ -10,6 +11,19 @@
         }
         std::cout << "Выберите поезд, для которого хотите изменить данные в диапазоне от 1 до " << n << ": " << std::endl;
         n1 = getinteger();
+        bool morethh = 0;
+        while(!morethh)
+        {
+            if(n1 > n)
+            {
+                std::cout << "Ошибка ввода, нет такого поезда. Попробуйте еще: " << std::endl;
+                n1 = getinteger();
+            }
+            else
+            {
+                morethh = 1;
+            }
+        }
         n1--;
         system("clear");
         std::cin.clear();
@@ -32,11 +46,16 @@
                 char check_str[80];
                 while(!check)
                 {
-                    std::cin.getline(check_str, 80);
+                    std::cin.getline(check_str, 10000000);
                     if (strcmp(check_str, "!") == '\0')
                     {
                         system("clear");
                         strmenu(p, n, buf);
+                    }
+                    if (strlen(check_str) > 79) 
+                    {
+                        std::cout << "Ошибка: строка слишком длинная. Попробуйте снова." << std::endl;
+                        continue;
                     }
                     if(check_str[0] == '\0')
                     {
@@ -67,12 +86,17 @@
                 while(!inputcheck)
                 {
                     bool flag = false;
-                    std::cin.getline(check_str1, 6);
+                    std::cin.getline(check_str1, 10000000);
                     if (strcmp(check_str1, "!") == 0)
                     {
                         system("clear");
                         strmenu(p, n, buf); 
-                    } 
+                    }
+                    if (strlen(check_str1) > 79) 
+                    {
+                        std::cout << "Ошибка: строка слишком длинная. Попробуйте снова." << std::endl;
+                        continue;
+                    }
                     for(int j = 0; j < 5; j++)
                     {
                         if(j == 2)

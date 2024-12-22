@@ -1,7 +1,13 @@
 #include "header.h"
     void inputdata(trains* p, int n, trains buf)
     {
-
+        long offset_arr  =  (long)(&((trains*)(0))->arrivepoint); //размер поля структуры(далее аналогично)
+        long offset_otpr =  (long)(&((trains*)(0))->timeotpr);
+        long offset_num =  (long)(&((trains*)(0))->numplaces);
+        long offset_price =  (long)(&((trains*)(0))->price);
+        long offset_length =  (long)(&((trains*)(0))->length.b);
+        long offset_time =  (long)(&((trains*)(0))->racetime);
+        long offset_speed =  (long)(&((trains*)(0))->midspeed);
         system("clear");
         std::cout << "Для прекращения ввода пропишите '!' : " << std::endl;
         for(int i = 0; i < n; i++)
@@ -13,7 +19,7 @@
                 char check_str[80];
                 while(!check)
                 {
-                    std::cin.getline(check_str, 80);
+                    std::cin.getline(check_str, 10000000);
                     if (strcmp(check_str, "!") == '\0')
                     {
                         system("clear");
@@ -22,6 +28,12 @@
                     if(check_str[0] == '\0')
                     {
                         std::cout << "Ошибка ввода, повторите попытку: " << std::endl;
+                        continue;
+                    }
+                    if (strlen(check_str) > 79) 
+                    {
+                        std::cout << "Ошибка: строка слишком длинная. Попробуйте снова." << std::endl;
+                        continue;
                     }
                     else
                     {
@@ -42,21 +54,34 @@
                     std::cin.clear();
                     std::cin.ignore(32767,'\n');
                 }
-
+                FILE* f;
+                f = fopen("trains.bin", "r+b");
+                if(f)
+                {                
+                    int poswrite = (i) * sizeof(trains) + offset_arr; //запись в бин  файл(позицияя для записи)
+                    fseek(f, poswrite, SEEK_SET );//двигаемся
+                    fwrite(((char *)(p+i))+offset_arr, (sizeof(char) * 80), 1, f); //записыываем
+                    fclose(f);//закрываем(аналогично дляя всех полей)
+                }
             }
             if(p[i].timeotpr[0] == '\0')
             {
                 bool inputcheck = false;
                 std::cout << "Введите время отправления для поезда(HH:MM) " << i+1 << " (остальная часть строки будет обрезана)" << " :" <<std::endl;
                 while(!inputcheck)
-                {
+                { 
                     bool flag = false;
                     char check_str1[6];
-                    std::cin.getline(check_str1, 6);
+                    std::cin.getline(check_str1, 100000);
                     if (strcmp(check_str1, "!") == 0)
                     {
                         system("clear");
                         strmenu(p, n, buf); 
+                    }
+                    if (strlen(check_str1) > 79) 
+                    {
+                        std::cout << "Ошибка: строка слишком длинная. Попробуйте снова." << std::endl;
+                        continue;
                     }
                     strncpy(p[i].timeotpr, check_str1, 6);
                     p[i].timeotpr[5] = '\0';
@@ -117,6 +142,15 @@
                     }
                     
                 }
+                FILE* f;
+                f = fopen("trains.bin", "r+b");
+                if(f)
+                {                
+                    int poswrite = (i) * sizeof(trains) + offset_otpr;
+                    fseek(f, poswrite, SEEK_SET );
+                    fwrite(((char *)(p+i))+offset_otpr, (sizeof(char) * 6), 1, f);
+                    fclose(f);
+                }
             }
             if(p[i].numplaces == -1)
             {
@@ -169,6 +203,15 @@
                     std::cin.clear();
                     std::cin.ignore(32767,'\n');
                 }
+                FILE* f;
+                f = fopen("trains.bin", "r+b");
+                if(f)
+                {                
+                    int poswrite = (i) * sizeof(trains) + offset_num;
+                    fseek(f, poswrite, SEEK_SET );
+                    fwrite(((char *)(p+i))+offset_num, sizeof(int) , 1, f);
+                    fclose(f);
+                } 
             }
             if(p[i].price == -1)
             {
@@ -228,7 +271,16 @@
                     }
                     std::cin.clear();
                     std::cin.ignore(32767,'\n');
-                } 
+                }
+                FILE* f;
+                f = fopen("trains.bin", "r+b");
+                if(f)
+                {                
+                    int poswrite = (i) * sizeof(trains) + offset_price;
+                    fseek(f, poswrite, SEEK_SET );
+                    fwrite(((char *)(p+i))+offset_price, sizeof(float) , 1, f);
+                    fclose(f);
+                }  
             }
             if(p[i].racetime == -1)
             {
@@ -288,7 +340,17 @@
                     }
                     std::cin.clear();
                     std::cin.ignore(32767,'\n');
+                }
+                FILE* f;
+                f = fopen("trains.bin", "r+b");
+                if(f)
+                {                
+                    int poswrite = (i) * sizeof(trains) + offset_time;
+                    fseek(f, poswrite, SEEK_SET );
+                    fwrite(((char *)(p+i))+offset_time, sizeof(float), 1, f);
+                    fclose(f);
                 } 
+                
             }
             if(p[i].length.b == -1)
             {
@@ -348,11 +410,32 @@
                     }
                     std::cin.clear();
                     std::cin.ignore(32767,'\n');
-                } 
+                }
+                FILE* f;
+                f = fopen("trains.bin", "r+b");
+                if(f)
+                {                
+                    int poswrite = (i) * sizeof(trains) + offset_length;
+                    int poswritepeed = (i) * sizeof(trains) + offset_speed;
+                    fseek(f, poswrite, SEEK_SET );
+                    fwrite(((char *)(p+i))+offset_length, sizeof(float), 1, f);
+                    fseek(f, poswritepeed, SEEK_SET );
+                    fwrite(((char *)(p+i))+offset_speed, sizeof(float), 1, f);
+                    fclose(f);
+                }  
             }
             if(p[i].midspeed == -1)
             {
                 p[i].midspeed = p[i].length.b/p[i].racetime;
+                FILE* f;
+                f = fopen("trains.bin", "r+b");
+                if(f)
+                {                
+                    int poswritepeed = (i) * sizeof(trains) + offset_speed;
+                    fseek(f, poswritepeed, SEEK_SET );
+                    fwrite(((char *)(p+i))+offset_speed, sizeof(float), 1, f);
+                    fclose(f);
+                }
                 if (p[i].midspeed == buf.midspeed)
                 {
                     std::cout << "Особое значение найдено(для скорости)" << std::endl;
@@ -368,13 +451,13 @@
             }
         }
         //  сохраним  в  файле  наши  поезда
-        FILE *f = fopen("trains.bin", "wb+");
-        if(f)
-        {
-            fseek(f,0L,SEEK_END);
-            fwrite( p, sizeof( trains ), n, f );
-            fclose(f);
-        }
+        // FILE *f = fopen("trains.bin", "wb+");
+        // if(f)
+        // {
+        //     fseek(f,0L,SEEK_END);
+        //     fwrite( p, sizeof( trains ), n, f );
+        //     fclose(f);
+        // }
 
         std::cout << std::endl <<"Введите 0 для возврата в меню: ";
         int k;

@@ -30,6 +30,19 @@ extern void mainprogramm();
     }
     void deleteline(trains* p, int &n, int j, trains buf)
     {
+        bool morethh = 0;
+        while(!morethh)
+        {
+            if(j > n)
+            {
+                std::cout << "Ошибка ввода, нет такого поезда. Попробуйте еще: " << std::endl;
+                j = getinteger();
+            }
+            else
+            {
+                morethh = 1;
+            }
+        }
         system("clear");
         FILE* f;
         f = fopen("trains.bin", "r+b");
@@ -47,7 +60,7 @@ extern void mainprogramm();
             if(f && (i+1 < n))
             {
                 trains tmpread; //буферный обьект типа поезда
-                int posread = (i+1) * sizeof(trains); //позиция скоторой  считыываем
+                int posread = (i+1) * sizeof(trains); //позиция скоторой  считываем
                 int poswrite = (i) * sizeof(trains); //куда записваем то что считали
                 fseek(f, posread, SEEK_SET ); //сдвиг
                 fread(&tmpread, sizeof( trains ), 1, f); //считка
@@ -60,11 +73,23 @@ extern void mainprogramm();
             long fsize;
             fseek(f,0L,SEEK_END); // Установить позицию на конец файла
             fsize = ftell(f);  //размер файла
-            int numstruct = fsize - sizeof(trains); //нова структура размер
-            if(numstruct >= 0)
+            if(j == n)
             {
-                ftruncate(fileno(f),   numstruct ); //изменение размера аналогия реаллок
+                int numstruct = (n-1) * sizeof(trains); //нова структура размер
+                if(numstruct >= 0)
+                {
+                    ftruncate(fileno(f),   numstruct ); //изменение размера аналогия реаллок
+                }
             }
+            else
+            {
+                int numstruct = fsize - sizeof(trains); //нова структура размер
+                if(numstruct >= 0)
+                {
+                    ftruncate(fileno(f),   numstruct ); //изменение размера аналогия реаллок
+                }
+            }
+            
             fclose(f);
         
         if(f && (ikeep > n))

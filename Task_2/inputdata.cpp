@@ -23,11 +23,16 @@ void inputdata(students* p, int n) //заполнение полей струк�
                 int counter = 0;
                 while(!checkfam)
                 {
-                    std::cin.getline(check_str, 80);
+                    std::cin.getline(check_str, 100000);
                     if (strcmp(check_str, "!") == '\0')
                     {
                         system("clear");
                         strmenu(p, n);
+                    }
+                    if (strlen(check_str) > 79) 
+                    {
+                        std::cout << "Ошибка: строка слишком длинная. Попробуйте снова." << std::endl;
+                        continue;
                     }
                     if(check_str[0] == '\0')
                     {
@@ -154,6 +159,7 @@ void inputdata(students* p, int n) //заполнение полей струк�
                 }
                 strcat(p[i].fio, space);
                 strcat(p[i].fio, check_str2);
+                filerecorder(p, n);
             }
             if(p[i].group == -1)
             {
@@ -188,6 +194,7 @@ void inputdata(students* p, int n) //заполнение полей струк�
                     }
                 }
                 p[i].group = std::atoi(input_str);
+                filerecorder(p, n);
             }
             if(p[i].srednball == -1)
             {
@@ -207,6 +214,7 @@ void inputdata(students* p, int n) //заполнение полей струк�
                     }
                 }
                 p[i].srednball = f1;
+                filerecorder(p, n);
             }
                 
             
@@ -215,6 +223,7 @@ void inputdata(students* p, int n) //заполнение полей струк�
                 std::cout << "Введите доход родителя студента(p) " << i+1  << " :" <<std::endl;
                 float f2 = getfloat(p, n);
                 p[i].doh = f2;
+                filerecorder(p, n);
                
             }
             if(p[i].budget.a == -1)
@@ -225,74 +234,9 @@ void inputdata(students* p, int n) //заполнение полей струк�
                 p[i].budget.b = f3;
                 std::cin.clear();
                 std::cin.ignore(32767,'\n');
+                filerecorder(p, n);
             }
-            std::ofstream fout; //обьект класса офстрим для записи в файл
-            fout.open("file.txt"); //перезапись файла
-            if(!fout.is_open())
-            {
-                std::cout << "Ошибка открытия файла! " << std::endl;
-            }
-            else
-            {
-            for(int i = 0; i < n; i++)
-            {
-                fout << "Студент " << i+1 << ": " << std::endl;
-                fout << "ФИО: ";
-                if (strcmp(p[i].fio, "") == 0)
-                {
-                    fout << "Данные отсутствуют " << std::endl;
-                }
-                else 
-                {
-                    fout << p[i].fio << std::endl;
-                }   
-                fout << "Номер группы: ";
-                if (p[i].group == -1)
-                {
-                    fout << "Данные отсутствуют " << std::endl;
-                }
-                else 
-                {
-                    fout << p[i].group  << std::endl;
-                }
-                fout << "Средний балл: ";
-                if (p[i].srednball == -1)
-                {
-                    fout << "Данные отсутствуют " << std::endl;
-                }
-                else 
-                {
-                    fout << p[i].srednball<< std::endl;
-                }
-                fout << "Доход: ";
-                if (p[i].doh == -1)
-                {
-                    fout << "Данные отсутствуют " << "p" << std::endl;
-                }
-                else 
-                {
-                    fout << p[i].doh<< std::endl;
-                }
-                fout << "Форма обучения: ";
-                if (p[i].budget.a == -1)
-                {
-                    fout << "Данные отсутствуют " << std::endl;
-                }
-                else 
-                {
-                    if(p[i].budget.b == 0)
-                    {
-                        fout << "Платная " << std::endl;
-                    }
-                    else
-                    {
-                        fout << "Бюджет " << std::endl;
-                    }
-                }
-                fout << std::endl;
-            }
-            }
-            fout.close();
+            filerecorder(p, n);
         }
         std::cout << std::endl <<"Введите 0 для возврата в меню: ";
         int k;

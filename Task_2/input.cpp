@@ -4,6 +4,7 @@
 #include <string.h>
 #include <cstring>
 #include <cstdlib>
+#include <fstream>
 
 int getValue() //главное меню
 {
@@ -201,4 +202,74 @@ int nullone() //только 0 и 1
             std::cout << "Неопознанная команда. Введите повторно: ";
         }
 }
+}
+void filerecorder(students* p , int n)
+{
+    std::ofstream fout; //обьект класса офстрим для записи в файл
+            fout.open("file.txt"); //перезапись файла
+            if(!fout.is_open())
+            {
+                std::cout << "Ошибка открытия файла! " << std::endl;
+            }
+            else
+            {
+            for(int i = 0; i < n; i++)
+            {
+                fout << "Студент " << i+1 << ": " << std::endl;
+                fout << "ФИО: ";
+                if (strcmp(p[i].fio, "") == 0)
+                {
+                    fout << "Данные отсутствуют " << std::endl;
+                }
+                else 
+                {
+                    fout << p[i].fio << std::endl;
+                }   
+                fout << "Номер группы: ";
+                if (p[i].group == -1)
+                {
+                    fout << "Данные отсутствуют " << std::endl;
+                }
+                else 
+                {
+                    fout << p[i].group  << std::endl;
+                }
+                fout << "Средний балл: ";
+                if (p[i].srednball == -1)
+                {
+                    fout << "Данные отсутствуют " << std::endl;
+                }
+                else 
+                {
+                    fout << p[i].srednball<< std::endl;
+                }
+                fout << "Доход: ";
+                if (p[i].doh == -1)
+                {
+                    fout << "Данные отсутствуют " << std::endl;
+                }
+                else 
+                {
+                    fout << p[i].doh<< std::endl;
+                }
+                fout << "Форма обучения: ";
+                if (p[i].budget.a == -1)
+                {
+                    fout << "Данные отсутствуют " << std::endl;
+                }
+                else 
+                {
+                    if(p[i].budget.b == 0)
+                    {
+                        fout << "Платная " << std::endl;
+                    }
+                    else
+                    {
+                        fout << "Бюджет " << std::endl;
+                    }
+                }
+                fout << std::endl;
+            }
+            }
+            fout.close();
 }

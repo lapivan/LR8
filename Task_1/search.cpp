@@ -24,11 +24,16 @@
             char check_str[80];
                 while(!check)
                 {
-                    std::cin.getline(check_str, 80);
+                    std::cin.getline(check_str, 1000000000);
                     if (strcmp(check_str, "!") == '\0') //восклицательный знак - прекращение  ввода
                     {
                         system("clear");
                         strmenu(p, n, buf);
+                    }
+                    if (strlen(check_str) > 79) 
+                    {
+                        std::cout << "Ошибка: строка слишком длинная. Попробуйте снова." << std::endl;
+                        continue;
                     }
                     if(check_str[0] == '\0')
                     {
@@ -119,11 +124,16 @@
             while(!inputcheck)
                 {
                     bool flag = false;
-                    std::cin.getline(check_str1, 6);
+                    std::cin.getline(check_str1, 10000000);
                     if (strcmp(check_str1, "!") == 0)
                     {
                         system("clear");
                         strmenu(p, n, buf); 
+                    }
+                    if (strlen(check_str1) > 79) 
+                    {
+                        std::cout << "Ошибка: строка слишком длинная. Попробуйте снова." << std::endl;
+                        continue;
                     } 
                     for(int j = 0; j < 5; j++)
                     {
